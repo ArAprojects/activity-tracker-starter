@@ -3,7 +3,9 @@ class Hydration {
     this.userID = data.userID;
     this.hydrationData = data.hydrationData;
   }
-  
+
 }
 
-module.exports = Hydration;
+if (typeof module !== 'undefined') {
+  module.exports = Hydration;
+}

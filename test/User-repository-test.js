@@ -10,7 +10,6 @@ const usersTestData = require('../data/users-test-data');
 const User = require('../src/User');
 
 describe('UserRepository', function() {
-
   let userRepository
   beforeEach(function() {
     userRepository = new UserRepository(usersTestData, 1);
