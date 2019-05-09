@@ -8,8 +8,8 @@ $(document).ready(() => {
     const $hydrationRepository = new HydrationRepository(randomUser);
     console.log($userRepository);
     console.log($hydrationRepository);
-    $('.all-content').fadeIn();
-    $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name);
+    // $('.all-content').fadeOut().fadeIn();
+    $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut().fadeIn();
     $('.user-address').html('Address: ' + $userRepository.currentUser.currentUserData.address);
     $('.user-email').html('Email: ' + $userRepository.currentUser.currentUserData.email);
     $('.average-steps').html('User Ave. Daily Steps: ' + $userRepository.returnAveDailySteps());
