@@ -37,11 +37,11 @@ describe('UserRepository', function() {
   });
 
   it('it should have a method that shows average daily step goal of all users', function () {
-    expect(userRepository.aveDailySteps()).to.eql(8400);
+    expect(userRepository.returnAveDailySteps()).to.eql(8400);
   });
 
   it('it should have a method that shows most common state of users', function () {
-    expect(userRepository.findMostCommonState()).to.eql('AR');
+    expect(userRepository.returnMostCommonState()).to.eql('AR');
   });
 
 });
