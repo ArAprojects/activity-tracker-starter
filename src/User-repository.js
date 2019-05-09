@@ -10,13 +10,13 @@ class UserRepository {
     return this.filepathway.find(user => user.id == userId);
   }
 
-  aveDailySteps() {
+  returnAveDailySteps() {
     return this.filepathway.reduce((totalSteps, singleUserSteps) => {
       return totalSteps += (singleUserSteps.dailyStepGoal / this.filepathway.length);
     }, 0);
   }
 
-  findMostCommonState() {
+  returnMostCommonState() {
     let commonStates = this.filepathway.map(user => user.address.split(' ')[user.address.split(' ').length - 2]);
     let stateRanking = commonStates.reduce((acc, curr) => {
       !acc[curr] ? acc[curr] = 1 : acc[curr]++;

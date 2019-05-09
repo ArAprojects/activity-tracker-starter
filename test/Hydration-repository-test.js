@@ -28,15 +28,15 @@ describe('HydrationRepository', function() {
   });
 
   it('should tell how many ounces a user consumed per day on average', function() {
-    expect(hydrationRepository.aveOuncesEveryDay()).to.eql(55.4);
+    expect(hydrationRepository.returnAveDailyOz()).to.eql(55.4);
   })
 
   it('should tell how many ounces consumed for a specific day', function() {
-    expect(hydrationRepository.singleDayOunces("07/05/2019")).to.eql(80);
+    expect(hydrationRepository.returnOzByDate("07/05/2019")).to.eql(80);
   })
 
   it('should tell how many ounces consumed for a week', function() {
-    expect(hydrationRepository.weekOunces("06/05/2019")).to.eql(405);
+    expect(hydrationRepository.returnWeeklyOz("06/05/2019")).to.eql(405);
   })
 
 });
