@@ -10,18 +10,18 @@ class HydrationRepository {
     return this.filepathway.find(hydrationObj => hydrationObj.userID == userId);
   }
 
-  aveOuncesEveryDay() {
+  returnAveDailyOz() {
     return this.userHydrationData.hydrationData.reduce((acc, curr) => {
       acc += curr.numOunces / this.userHydrationData.hydrationData.length;
       return acc;
     }, 0);
   }
 
-  singleDayOunces(specificDate) {
+  returnOzByDate(specificDate) {
     return this.userHydrationData.hydrationData.find(day => day.date == specificDate).numOunces;
   }
 
-  weekOunces(specificDate) {
+  returnWeeklyOz(specificDate) {
     let index = this.userHydrationData.hydrationData.findIndex(day => day.date == specificDate);
     let weekData = this.userHydrationData.hydrationData.slice(index, index + 7);
     return weekData.reduce((acc, curr) => {
