@@ -28,7 +28,7 @@ describe('HydrationRepository', function() {
   });
 
   it('should tell how many ounces a user consumed per day on average', function() {
-    expect(hydrationRepository.returnAveDailyOz()).to.eql(55.4);
+    expect(hydrationRepository.returnAveDailyOz()).to.eql(55);
   })
 
   it('should tell how many ounces consumed for a specific day', function() {
