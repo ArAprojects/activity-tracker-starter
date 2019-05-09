@@ -20,7 +20,7 @@ class HydrationRepository {
   returnAveDailyOz() {
     return this.userHydrationData.hydrationData.reduce((acc, curr) => {
       acc += curr.numOunces / this.userHydrationData.hydrationData.length;
-      return acc;
+      return Math.round(acc);
     }, 0);
   }
 

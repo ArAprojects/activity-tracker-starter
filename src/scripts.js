@@ -1,18 +1,20 @@
 $(document).ready(() => {
 
+
+
   $('.user-photo').click(function() {
-    const $userRepository = new UserRepository(generateRandomUser());
+    let randomUser = generateRandomUser();
+    const $userRepository = new UserRepository(randomUser);
+    const $hydrationRepository = new HydrationRepository(randomUser);
     console.log($userRepository);
-    $('.all-content').fadeToggle();
-    $('.user-name').append('Name: ' + $userRepository.currentUser.name);
-    $('.user-address').append('Address: ' + $userRepository.currentUser.address);
-    $('.user-email').append('Email: ' + $userRepository.currentUser.email);
-    $('.user-photo');
-    $('.all-content');
-    $('.user-data');
-    $('.average-steps');
-    $('.find-most-common-state');
-    $('.average-daily-ounces');
+    console.log($hydrationRepository);
+    // $('.all-content').fadeOut().fadeIn();
+    $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut().fadeIn();
+    $('.user-address').html('Address: ' + $userRepository.currentUser.currentUserData.address);
+    $('.user-email').html('Email: ' + $userRepository.currentUser.currentUserData.email);
+    $('.average-steps').html('User Ave. Daily Steps: ' + $userRepository.returnAveDailySteps());
+    $('.find-most-common-state').html('Most Common State For All Users: ' + $userRepository.returnMostCommonState());
+    $('.average-daily-ounces').html('User average daily ounces: ' + $hydrationRepository.returnAveDailyOz());
   });
   function generateRandomUser() {
     return Math.floor((Math.random() * 50) + 1);

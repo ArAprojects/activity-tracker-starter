@@ -1,14 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
 const HydrationRepository = require('../src/Hydration-repository');
-const hydrationTestData = require('../data/hydration-test-data')
 const Hydration = require('../src/Hydration');
 
 describe('HydrationRepository', function() {
 
   let hydrationRepository;
   beforeEach(function() {
-    hydrationRepository = new HydrationRepository(hydrationTestData, 1);
+    hydrationRepository = new HydrationRepository(1);
   })
 
   it('should be a function', function() {
@@ -23,12 +22,8 @@ describe('HydrationRepository', function() {
     expect(hydrationRepository.userHydrationData).to.be.an.instanceof(Hydration);
   });
 
-  it('should have be connected to test data file', function() {
-    expect(hydrationTestData[0].userID).to.eql(1);
-  });
-
   it('should tell how many ounces a user consumed per day on average', function() {
-    expect(hydrationRepository.returnAveDailyOz()).to.eql(55.4);
+    expect(hydrationRepository.returnAveDailyOz()).to.eql(55);
   })
 
   it('should tell how many ounces consumed for a specific day', function() {
