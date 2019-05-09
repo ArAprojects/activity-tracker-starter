@@ -1,7 +1,14 @@
-const User = require('../src/User');
+let filepathway = {}
+
+if (typeof module !== 'undefined') {
+  User = require('../src/User');
+  filepathway = require('../data/users-test-data');
+} else {
+  filepathway = userData;
+}
 
 class UserRepository {
-  constructor(filepathway, userId) {
+  constructor(userId) {
     this.filepathway = filepathway;
     this.currentUser = new User(this.returnData(userId));
   }
@@ -24,7 +31,9 @@ class UserRepository {
     }, {});
   return Object.entries(stateRanking).sort((a, b) => a[1] - b[1]).pop()[0];
   }
-
 }
 
-module.exports = UserRepository;
+
+if (typeof module !== 'undefined') {
+  module.exports = UserRepository;
+}

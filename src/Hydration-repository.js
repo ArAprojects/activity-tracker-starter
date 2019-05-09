@@ -1,8 +1,15 @@
-Hydration = require('../src/Hydration');
+let hydrationPathway = {}
+
+if (typeof module !== 'undefined') {
+  Hydration = require('../src/Hydration');
+  hydrationPathway = require('../data/hydration-test-data');
+} else {
+  hydrationPathway = hydrationData;
+}
 
 class HydrationRepository {
-  constructor(filepathway, userId) {
-    this.filepathway = filepathway;
+  constructor(userId) {
+    this.filepathway = hydrationPathway;
     this.userHydrationData = new Hydration(this.returnHydrationData(userId));
   }
 
@@ -32,4 +39,6 @@ class HydrationRepository {
 
 }
 
-module.exports = HydrationRepository;
+if (typeof module !== 'undefined') {
+  module.exports = HydrationRepository;
+}
