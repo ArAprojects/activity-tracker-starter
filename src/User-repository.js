@@ -1,5 +1,3 @@
-let filepathway = {}
-
 if (typeof module !== 'undefined') {
   User = require('../src/User');
   filepathway = require('../data/users-test-data');

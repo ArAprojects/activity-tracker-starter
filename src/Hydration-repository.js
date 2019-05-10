@@ -1,5 +1,3 @@
-let hydrationPathway = {}
-
 if (typeof module !== 'undefined') {
   Hydration = require('../src/Hydration');
   hydrationPathway = require('../data/hydration-test-data');
