@@ -17,6 +17,10 @@ class Sleep {
     }, 0).toFixed(1));
   }
 
+  returnHoursSleptByDate(date) {
+    return this.userSleepData.sleepData.find(day => day.date == date).hoursSlept;
+  }
+
 }
 
 if (typeof module !== 'undefined') {

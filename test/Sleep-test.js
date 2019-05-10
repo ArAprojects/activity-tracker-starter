@@ -26,4 +26,10 @@ describe('Sleep', function() {
     expect(sleep.returnAveSleepQual()).to.equal(3.0);
   });
 
+  it('should have a method that returns how many hours they slept for a specific day (identified by a date)', function() {
+    expect(sleep.returnHoursSleptByDate("07/05/2019")).to.equal(10.7);
+  });
+
+  
+
 });
