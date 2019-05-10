@@ -1,13 +1,14 @@
 if (typeof module !== 'undefined') {
   Sleep = require('../src/Sleep');
-  sleepPathway = require('../data/hydration-test-data');
+  sleepPathway = require('../data/sleep-test-data');
 } else {
   sleepPathway = sleepData;
 }
 
 class SleepRepository {
-  constructor() {
-
+  constructor(userId) {
+    this.filepathway = sleepPathway;
+    this.userSleepData = new Sleep();
   }
 }
 

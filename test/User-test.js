@@ -1,7 +1,3 @@
-// create new user class
-// create constructor within class
-// create id, name, address, email, strideLength, dailyStepGoal
-// create method to return only the first name
 const chai = require('chai');
 const expect = chai.expect;
 const User = require('../src/User');
@@ -10,7 +6,7 @@ describe('User', function() {
 
   let user
   beforeEach(function() {
-  user = new User({
+    user = new User({
       "id": 1,
       "name": "Nyasia Weber",
       "address": "270 August Meadows, Maribelside SD 36129",
@@ -24,7 +20,7 @@ describe('User', function() {
     expect(User).to.be.a('function');
   });
 
-  it('should be an instance of user', function() {
+  it('should be an instance of User', function() {
     expect(user).to.be.an.instanceof(User);
   });
 
