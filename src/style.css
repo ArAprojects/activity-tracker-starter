@@ -9,7 +9,7 @@ body {
 }
 
 header {
-  background-color: #003A63;
+  background-color: #195177;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,11 @@ h1 {
 }
 
 main {
-  background-color: ;
+  background-color: lightgrey;
+}
+
+.photo-and-info {
+  display: flex;
 }
 
 .column {
@@ -38,12 +42,16 @@ p {
 }
 
 .user-data {
-  border: 1px solid black;
   padding: 15px;
 }
 
+.all-content {
+  display: flex;
+  align-items: center;
+}
+
 .pig {
-  width: 200px;
+  width: 110px;
 }
 
 /* .flex-wrapper {
