@@ -1,17 +1,18 @@
 $(document).ready(() => {
 
-  $('.user-photo').click(function() {
+  $('.pig').click(function() {
     let randomUser = generateRandomUser();
     const $userRepository = new UserRepository(randomUser);
     const $hydrationRepository = new HydrationRepository(randomUser);
-    console.log($hydrationRepository);
-    console.log($userRepository);
+    var randomColorChange = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
     $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut(1).fadeIn(700);
     $('.user-address').html('Address: ' + $userRepository.currentUser.currentUserData.address).fadeOut(1).fadeIn(700);
     $('.user-email').html('Email: ' + $userRepository.currentUser.currentUserData.email).fadeOut(1).fadeIn(700);
     $('.average-steps').html('User Ave. Daily Steps: ' + $userRepository.returnAveDailySteps()).fadeOut(1).fadeIn(700);
     $('.find-most-common-state').html('Most Common State For All Users: ' + $userRepository.returnMostCommonState()).fadeOut(1).fadeIn(700);
-    $('.average-daily-ounces').html('User average daily ounces: ' + $hydrationRepository.returnAveDailyOz()).fadeOut(1).fadeIn(700 );
+    $('.pig').css('background-color', randomColorChange);
+
+    // $('.average-daily-ounces').html('User average daily ounces: ' + $hydrationRepository.returnAveDailyOz()).fadeOut(1).fadeIn(700 );
   });
 
   function generateRandomUser() {
