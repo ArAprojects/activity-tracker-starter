@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Open Sans';
+  background-color: #e6eef2;
 }
 
 header {
@@ -26,6 +27,7 @@ h1 {
 
 main {
   background-color: lightgrey;
+  margin: 10px;
 }
 
 .photo-and-info {
@@ -51,7 +53,8 @@ p {
 }
 
 .pig {
-  width: 110px;
+  width: 140px;
+  padding: 20px;
 }
 
 /* .flex-wrapper {
