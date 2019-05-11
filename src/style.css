@@ -1,6 +1,60 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family: 'Open Sans';
+  background-color: #e6eef2;
+}
+
+header {
+  background-color: #195177;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: lightgrey;
+  padding: 20px;
+}
+
+.run-guy {
+  height: 50px;
+}
+
+main {
+  background-color: lightgrey;
+  margin: 10px;
+}
+
+.photo-and-info {
+  display: flex;
+}
+
 .column {
   display: flex;
   flex-direction: column;
+}
+
+p {
+  margin: 10px;
+}
+
+.user-data {
+  padding: 15px;
+}
+
+.all-content {
+  display: flex;
+  align-items: center;
+}
+
+.pig {
+  width: 140px;
+  padding: 20px;
 }
 
 /* .flex-wrapper {
