@@ -19,19 +19,35 @@ header {
 h1 {
   color: lightgrey;
   padding: 20px;
+  font-size: 3em;
 }
+
+h2 {
+  text-align: center;
+  font-size: 3em;
+  margin: 10px;
+}
+
+h4 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 2em;
+}
+
 
 .run-guy {
   height: 50px;
 }
 
 main {
-  background-color: lightgrey;
   margin: 10px;
 }
 
 .photo-and-info {
   display: flex;
+  align-items: center;
+  background-color: lightgrey;
+  padding: 10px;
 }
 
 .column {
@@ -41,20 +57,30 @@ main {
 
 p {
   margin: 10px;
+  font-size: 20px;
+}
+
+.user-name {
+  font-weight: bold;
 }
 
 .user-data {
   padding: 15px;
 }
 
-.all-content {
-  display: flex;
-  align-items: center;
+.specific-user-section {
+  background-color: grey;
+  margin-top: 10px;
 }
 
 .pig {
-  width: 140px;
+  width: 145px;
   padding: 20px;
+  background-color: lightgrey;
+}
+
+.you {
+  font-weight: bold;
 }
 
 /* .flex-wrapper {

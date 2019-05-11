@@ -10,10 +10,13 @@ $(document).ready(() => {
     $('.user-email').html('Email: ' + $userRepository.currentUser.currentUserData.email).fadeOut(1).fadeIn(700);
     $('.average-steps').html('User Ave. Daily Steps: ' + $userRepository.returnAveDailySteps()).fadeOut(1).fadeIn(700);
     $('.find-most-common-state').html('Most Common State For All Users: ' + $userRepository.returnMostCommonState()).fadeOut(1).fadeIn(700);
-//     $('.average-daily-ounces').html('User Average Daily All-time Ounces: ' + $hydrationRepository.returnAveDailyOz()).fadeOut(1).fadeIn(700);
-    $('.specific-daily-ounces').html('User Hydration Ounces Today: ' + $hydrationRepository.returnOzByDate('13/08/2019')).fadeOut(1).fadeIn(700 );
+    //$('.average-daily-ounces').html('User Average Daily All-time Ounces: ' + $hydrationRepository.returnAveDailyOz()).fadeOut(1).fadeIn(700);
+    // $('.specific-daily-ounces').html('User Hydration Ounces Today: ' + $hydrationRepository.returnOzByDate('13/08/2019')).fadeOut(1).fadeIn(700);
     $('.pig').css('background-color', randomColorChange);
-
+    $('.welcome-message').html('Welcome back ' + $userRepository.currentUser.returnFirstName() + '!')
+    $('.intro-message').html('Below you\'ll find a list of stats curated just for')
+    $('.you').html('You!')
+    $('.you').css('color', randomColorChange)
 
   });
 
