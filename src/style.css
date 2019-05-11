@@ -1,6 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family: 'Open Sans';
+}
+
+header {
+  background-color: #003A63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: lightgrey;
+  padding: 20px;
+}
+
+.run-guy {
+  height: 50px;
+}
+
+main {
+  background-color: ;
+}
+
 .column {
   display: flex;
   flex-direction: column;
+}
+
+p {
+  margin: 10px;
 }
 
 .user-data {
