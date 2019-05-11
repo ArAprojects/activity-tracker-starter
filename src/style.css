@@ -3,6 +3,15 @@
   flex-direction: column;
 }
 
+.user-data {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.pig {
+  width: 200px;
+}
+
 /* .flex-wrapper {
   display: flex;
   flex-flow: row nowrap;

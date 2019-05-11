@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-  $('.user-photo').click(function() {
+  $('.pig').click(function() {
     let randomUser = generateRandomUser();
     const $userRepository = new UserRepository(randomUser);
     const $hydrationRepository = new HydrationRepository(randomUser);
