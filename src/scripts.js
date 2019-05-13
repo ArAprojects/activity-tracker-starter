@@ -17,6 +17,7 @@ $(document).ready(() => {
     $('.intro-message').html('Below you\'ll find a list of stats curated just for').fadeOut(1).fadeIn(700);
     $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange)
+    $('.specific-widget-area').removeClass('none')
   });
 
   function generateRandomUser() {
