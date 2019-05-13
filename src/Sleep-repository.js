@@ -23,24 +23,18 @@ class SleepRepository {
     }, 0).toFixed(1));
   }
 
-  returnSleepQualityGreaterThan3fForWeek() {
-    let a = sleepData.map(user => user.sleepData.findIndex(day => day.date == searchDate));
-    console.log('a', a);
-    let b = sleepData.map(user => user.sleepData.slice(a[0], a[0] + 7));
-    console.log('b', b);
-    let c = b.map(user => user.map(day => day.sleepQuality));
-    console.log('c', c);
-    let d = c.map(user => user.reduce((acc, curr) => acc += curr), 0);
-    console.log('d', d);
-    let e = d.map(user => user / 7);
-    console.log('e', e)
-    let f = e.reduce((acc, curr, index) => {
+  returnSleepQualityGreaterThan3fForWeek(searchDate) {
+    let dateIndex = sleepData.map(user => user.sleepData.findIndex(day => day.date == searchDate));
+    let weeklyData = sleepData.map(user => user.sleepData.slice(dateIndex[0], dateIndex[0] + 7));
+    let weeklySleepQual = weeklyData.map(user => user.map(day => day.sleepQuality));
+    let totalSleepQual = weeklySleepQual.map(user => user.reduce((acc, curr) => acc += curr), 0);
+    let aveSleepQual = totalSleepQual.map(user => user / 7);
+    return aveSleepQual.reduce((acc, curr, index) => {
       if (curr > 3) {
-        acc.push(index + 1);
+        acc.push([index + 1, Number(curr.toFixed(1))]);
       }
       return acc;
     }, []);
-    console.log('f', f)
   }
 
 }
