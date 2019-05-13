@@ -76,7 +76,7 @@ main {
   width: 50%;
   padding: 10px;
   /* background: rgba(26, 26, 29, 0.7); */
-  height: 210px;
+  height: 250px;
 }
 
 .column {
@@ -134,7 +134,7 @@ p {
   flex: 1;
   justify-content: center;
   border-left: 10px solid #29273D;
-  min-height: 210px;
+  min-height: 250px;
 }
 
 .user {

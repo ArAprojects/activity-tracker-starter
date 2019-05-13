@@ -9,13 +9,13 @@
     <header>
       <article class="title">
         <h1>Activity Tracker </h1>
-        <img class="run-guy" src="../assets/run.svg" alt="">
+        <img class="run-guy" src="../assets/run.svg" alt="really fast stick-person">
       </article>
     </header>
     <main>
       <div class="welcome-banner">
         <section class="photo-and-info">
-          <img class="pig" src="../assets/stickman.svg" alt="">
+          <img class="pig" src="../assets/stickman.svg" alt="user profile picture, also stick person">
           <div class="specific-content">
             <section class="user-data column">
               <p class="user-name"></p>
@@ -33,7 +33,8 @@
       <div class="widget-area">
         <section class="none specific-widget-area">
           <div class="widget user">
-            <h4>User</h4>
+            <h4></h4>
+            <canvas id="bar-chart" width="800" height="700"></canvas>
           </div>
           <div class="widget hydration">
             <h4>Hydration</h4>
@@ -43,7 +44,6 @@
           </div>
           <div class="widget activity">
             <h4>Activity</h4>
-
           </div>
         </section>
         <section class="general-widget-area">
@@ -114,6 +114,7 @@
     <script type="text/javascript" src="./Hydration.js"></script>
     <script type="text/javascript" src="./Hydration-repository.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script type="text/javascript" src="./scripts.js"></script>
   </body>
 </html>

@@ -18,10 +18,40 @@ $(document).ready(() => {
     $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange)
     $('.specific-widget-area').removeClass('none')
+    staticUser = $userRepository.currentUser.returnFirstName()
+    chart.data.labels[0] = $userRepository.currentUser.returnFirstName()
+    console.log($userRepository.currentUser.currentUserData.dailyStepGoal)
+    chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal
+    chart.update()
   });
+
+
+  var chart = new Chart(document.getElementById("bar-chart"), {
+      type: 'bar',
+      data: {
+        labels: ["anything", "Asia"],
+        datasets: [
+          {
+            label: "Population (millions)",
+            backgroundColor: ["#3e95cd", "#8e5ea2"],
+            data: [2478,6960]
+          }
+        ]
+      },
+      options: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Predicted world population (millions) in 2050'
+        }
+      }
+  });
+
+
+
+
 
   function generateRandomUser() {
     return Math.floor((Math.random() * 50) + 1);
-  }
-
+  };
 });
