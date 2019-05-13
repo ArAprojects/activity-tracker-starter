@@ -17,7 +17,6 @@ $(document).ready(() => {
     $('.intro-message').html('Below you\'ll find a list of stats curated just for')
     $('.you').html('You!')
     $('.you').css('color', randomColorChange)
-
   });
 
   function generateRandomUser() {
