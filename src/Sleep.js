@@ -23,14 +23,12 @@ class Sleep {
 
   returnWeekOfHoursByDate(searchDate) {
     let index = this.userSleepData.sleepData.findIndex(day => day.date == searchDate);
-    console.log(index);
     let weekData = this.userSleepData.sleepData.slice(index, index + 7);
       return weekData.map(day => day.hoursSlept);
   }
 
   returnWeekOfQualityByDate(searchDate) {
     let index = this.userSleepData.sleepData.findIndex(day => day.date == searchDate);
-    console.log(index);
     let weekData = this.userSleepData.sleepData.slice(index, index + 7);
       return weekData.map(day => day.sleepQuality);
   }
