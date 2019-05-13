@@ -27,7 +27,9 @@ header {
 h1 {
   padding: 20px;
   font-size: 3em;
-  color: #d6d7e4;
+  background: -webkit-linear-gradient(#fff, #3B3863);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
@@ -55,6 +57,12 @@ main {
   /* background-position: center; */
   background-size: cover;
   color: #d6d7e4;
+}
+
+.welcome-banner {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 
@@ -97,6 +105,10 @@ p {
   width: 145px;
   padding: 20px;
   background-color: lightgrey;
+}
+
+.pig:hover {
+  border: 2px solid black;
 }
 
 .you {

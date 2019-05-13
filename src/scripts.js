@@ -13,9 +13,9 @@ $(document).ready(() => {
     //$('.average-daily-ounces').html('User Average Daily All-time Ounces: ' + $hydrationRepository.returnAveDailyOz()).fadeOut(1).fadeIn(700);
     // $('.specific-daily-ounces').html('User Hydration Ounces Today: ' + $hydrationRepository.returnOzByDate('13/08/2019')).fadeOut(1).fadeIn(700);
     $('.pig').css('background-color', randomColorChange);
-    $('.welcome-message').html('Welcome back ' + $userRepository.currentUser.returnFirstName() + '!')
-    $('.intro-message').html('Below you\'ll find a list of stats curated just for')
-    $('.you').html('You!')
+    $('.welcome-message').html('Welcome back ' + $userRepository.currentUser.returnFirstName() + '!').fadeOut(1).fadeIn(700);
+    $('.intro-message').html('Below you\'ll find a list of stats curated just for').fadeOut(1).fadeIn(700);
+    $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange)
   });
 
