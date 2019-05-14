@@ -39,7 +39,7 @@ describe('Activity', function() {
   });
 
   it('should have a method that returns their all-time stair climbing record', function() {
-    expect(activity.returnAllTimeStairRecord()).to.eql();
+    expect(activity.returnAllTimeStairRecord()).to.eql(50);
   });
 
 });
