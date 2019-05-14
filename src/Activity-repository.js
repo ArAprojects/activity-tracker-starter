@@ -5,7 +5,7 @@ if (typeof module !== 'undefined') {
   activityPathway = activityData;
 }
 
-class SleepRepository {
+class ActivityRepository {
   constructor(userId) {
     this.filepathway = activityPathway;
     this.userSleepData = new Activity(this.returnActivityData(userId));

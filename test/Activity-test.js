@@ -26,4 +26,20 @@ describe('Activity', function() {
     expect(activity.returnMinutesActiveByDate("14/07/2019")).to.equal(262);
   });
 
+  it('should have a method that returns how many minutes active did they average for a given week (7 days)', function() {
+    expect(activity.returnAveWeeklyActivityMinutes("14/07/2019")).to.equal();
+  });
+
+  it('should have a method that returns whether they reached their step goal for a given day (specified by a date)', function() {
+    expect(activity.returnStepGoalAchievement("14/07/2019", userStepGoal)).to.equal(true/false);
+  });
+
+  it('should have a method that returns all the days they exceeded their step goal', function() {
+    expect(activity.returnTotalExceededStepGoals(14000)).to.eql([Array (9)]);
+  });
+
+  it('should have a method that returns their all-time stair climbing record', function() {
+    expect(activity.returnAllTimeStairRecord()).to.eql();
+  });
+
 });
