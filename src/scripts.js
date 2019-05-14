@@ -8,31 +8,39 @@ $(document).ready(() => {
     $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut(1).fadeIn(700);
     $('.user-address').html('Address: ' + $userRepository.currentUser.currentUserData.address).fadeOut(1).fadeIn(700);
     $('.user-email').html('Email: ' + $userRepository.currentUser.currentUserData.email).fadeOut(1).fadeIn(700);
-    $('.average-steps').html('User Ave. Daily Steps: ' + $userRepository.returnAveDailySteps()).fadeOut(1).fadeIn(700);
-    $('.find-most-common-state').html('Most Common State For All Users: ' + $userRepository.returnMostCommonState()).fadeOut(1).fadeIn(700);
+    // $('.average-steps').html('User Ave. Daily Steps: ' + $userRepository.returnAveDailySteps()).fadeOut(1).fadeIn(700);
+    // $('.find-most-common-state').html('Most Common State For All Users: ' + $userRepository.returnMostCommonState()).fadeOut(1).fadeIn(700);
     $('.pig').css('background-color', randomColorChange);
     $('.welcome-message').html('Welcome back ' + $userRepository.currentUser.returnFirstName() + '!').fadeOut(1).fadeIn(700);
     $('.intro-message').html('Below you\'ll find a list of stats curated just for').fadeOut(1).fadeIn(700);
     $('.you').html('You!').fadeOut(1).fadeIn(700);
-    $('.you').css('color', randomColorChange)
-    $('.specific-widget-area').removeClass('none')
-    staticUser = $userRepository.currentUser.returnFirstName()
-    chart.data.labels[0] = $userRepository.currentUser.returnFirstName()
-    console.log($hydrationRepository.returnWeeklyOz("13/08/2019"))
-    chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal
-    chart.update()
+    $('.you').css('color', randomColorChange);
+    $('.specific-widget-area').removeClass('none');
+    sleepChart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    sleepChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    lineChart.data.datasets[0].backgroundColor = randomColorChange;
+    chart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal;
+    chart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    chart.update();
+    lineChart.update();
+    sleepChart.update();
   });
+
+
+  $('.activity').click(function() {
+    $('#sleep-chart').toggle()
+  })
 
 
   var chart = new Chart(document.getElementById("bar-chart"), {
       type: 'bar',
       data: {
         labels: ["anything", "Users"],
-
         datasets: [
           {
             label: "hi",
-            backgroundColor: ["#3e95cd", "#8e5ea2"],
+            backgroundColor: ["anything", "grey"],
             data: [2478,6960],
           }
         ]
@@ -76,7 +84,7 @@ $(document).ready(() => {
     datasets: [{
         data: [86,114,106,106,107,111,133,221,783,2478],
         label: "Water consumed this week",
-        borderColor: "#3e95cd",
+        borderColor: "red",
         fill: true,
         backgroundColor: "rgba(32, 162, 219, 0.3)",
       }
@@ -113,6 +121,51 @@ $(document).ready(() => {
     }
   }
 });
+
+var sleepChart = new Chart(document.getElementById("sleep-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["hey", "Users"],
+      datasets: [
+        {
+          label: "hi",
+          backgroundColor: ["red", "grey"],
+          data: [2478,6960],
+        }
+      ]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      legend: {
+        display: false,
+       },
+      title: {
+        padding: 20,
+        display: true,
+        text: 'User-Goal VS average-user-goal',
+        fontColor: "white",
+        fontSize: 18
+      },
+      scales: {
+        xAxes: [{
+            ticks: {
+                fontColor: "white",
+                fontSize: 16,
+              }
+            }],
+          yAxes: [{
+              ticks: {
+                  fontColor: "white",
+                  fontSize: 16,
+                  maxTicksLimit: 6,
+                  beginAtZero: true
+              }
+          }]
+      }
+    }
+});
+
 
 
 
