@@ -1,5 +1,7 @@
 $(document).ready(() => {
 $('#sleep-quality-chart').hide()
+$('#sleep-amount-line-chart').hide()
+
 
   $('.pig').click(function() {
     let randomUser = generateRandomUser();
@@ -16,27 +18,39 @@ $('#sleep-quality-chart').hide()
     $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange);
     $('.specific-widget-area').removeClass('none');
+    $('.general-widget-area').removeClass('none')
+
+    sleepAmountLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfHoursByDate("13/08/2019")
+    sleepQualityLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfQualityByDate("13/08/2019")
     sleepQualityChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
     sleepQualityChart.data.datasets[0].data[0] = $sleepRepository.userSleepData.returnAveSleepQual()
-    sleepQualityChart.data.datasets[0].backgroundColor[0] = randomColorChange;
     sleepChart.data.datasets[0].data[0] = $sleepRepository.userSleepData.returnAveDailySleepHours()
-    sleepChart.data.datasets[0].backgroundColor[0] = randomColorChange;
     sleepChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
-    lineChart.data.datasets[0].backgroundColor = randomColorChange;
     lineChart.data.datasets[0].data = $hydrationRepository.userHydrationData.returnWeeklyOz("13/08/2019")
     chart.data.labels[0] = $userRepository.currentUser.returnFirstName();
     chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal;
     chart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    sleepAmountLineChart.data.datasets[0].backgroundColor = randomColorChange;
+    sleepQualityLineChart.data.datasets[0].backgroundColor = randomColorChange;
+    sleepQualityChart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    sleepChart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    lineChart.data.datasets[0].backgroundColor = randomColorChange;
     chart.update();
     lineChart.update();
     sleepChart.update();
     sleepQualityChart.update();
+    sleepQualityLineChart.update()
+    sleepAmountLineChart.update()
   });
 
 
-  $('.activity').click(function() {
-    $('#sleep-chart').toggle()
-    $('#sleep-quality-chart').toggle()
+    $('.activity').click(function() {
+      $('#sleep-chart').toggle()
+      $('#sleep-quality-chart').toggle()
+  })
+    $('.sleep').click(function() {
+      $('#sleep-quality-line-chart').toggle()
+      $('#sleep-amount-line-chart').toggle()
   })
 
 
@@ -61,7 +75,7 @@ $('#sleep-quality-chart').hide()
         title: {
           padding: 20,
           display: true,
-          text: 'User-Goal VS average-user-goal',
+          text: 'Step-Goals!',
           fontColor: "white",
           fontSize: 18
         },
@@ -220,6 +234,95 @@ var sleepQualityChart = new Chart(document.getElementById("sleep-quality-chart")
     }
 });
 
+var sleepQualityLineChart = new Chart(document.getElementById("sleep-quality-line-chart"), {
+type: 'line',
+data: {
+  labels: [1500,1600,1700,1750,1800,2000, "Today"],
+  datasets: [{
+      data: [],
+      label: "Water consumed this week",
+      borderColor: "red",
+      fill: true,
+      backgroundColor: "rgba(32, 162, 219, 0.3)",
+    }
+  ]
+},
+options: {
+  responsive: false,
+  maintainAspectRatio: false,
+  legend: {
+    display: false,
+  },
+  title: {
+    padding: 20,
+    fontColor: "white",
+    fontSize: 18,
+    display: true,
+    text: 'Sleep Quality this week!'
+  },
+  scales: {
+    xAxes: [{
+        ticks: {
+            maxTicksLimit: 7,
+            fontColor: "white",
+            fontSize: 14,
+          }
+        }],
+      yAxes: [{
+          ticks: {
+              fontColor: "white",
+              fontSize: 14,
+              beginAtZero: true
+          }
+      }]
+  }
+}
+});
+
+var sleepAmountLineChart = new Chart(document.getElementById("sleep-amount-line-chart"), {
+type: 'line',
+data: {
+  labels: [1500,1600,1700,1750,1800,2000, "Today"],
+  datasets: [{
+      data: [],
+      label: "Water consumed this week",
+      borderColor: "red",
+      fill: true,
+      backgroundColor: "rgba(32, 162, 219, 0.3)",
+    }
+  ]
+},
+options: {
+  responsive: false,
+  maintainAspectRatio: false,
+  legend: {
+    display: false,
+  },
+  title: {
+    padding: 20,
+    fontColor: "white",
+    fontSize: 18,
+    display: true,
+    text: 'Sleep Amount this week!'
+  },
+  scales: {
+    xAxes: [{
+        ticks: {
+            maxTicksLimit: 7,
+            fontColor: "white",
+            fontSize: 14,
+          }
+        }],
+      yAxes: [{
+          ticks: {
+              fontColor: "white",
+              fontSize: 14,
+              beginAtZero: true
+          }
+      }]
+  }
+}
+});
 
 
 

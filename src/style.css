@@ -66,7 +66,7 @@ main {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 250px;
+  height: 200px;
 
 }
 
@@ -76,8 +76,6 @@ main {
   align-items: center;
   width: 50%;
   padding: 10px;
-  /* background: rgba(26, 26, 29, 0.7); */
-  height: 250px;
 }
 
 .column {
@@ -124,6 +122,10 @@ p {
   display: flex;
   border-top: 15px solid #29273D;
 }
+.general-widget-area {
+  display: flex;
+  border-top: 15px solid #29273D;
+}
 
 .none {
   display: none;
@@ -134,12 +136,21 @@ p {
   display: flex;
   flex: 1;
   justify-content: center;
-  border-left: 10px solid #29273D;
+  border-left: 15px solid #29273D;
   height: 300px;
 }
 
 .hydration {
   flex: 2
+}
+
+.sleep {
+  flex: 2;
+  border-left: none;
+}
+
+.activity:hover {
+  transform: scale(1.02);
 }
 
 
@@ -151,58 +162,3 @@ p {
   color: white;
   margin: 5px;
 }
-
-/* .flex-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.single-chart {
-  width: 33%;
-  justify-content: space-around ;
-}
-
-.circular-chart {
-  display: block;
-  margin: 10px auto;
-  max-width: 80%;
-  max-height: 250px;
-}
-
-.circle-bg {
-  fill: none;
-  stroke: #eee;
-  stroke-width: 3.8;
-}
-
-.circle {
-  fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-}
-
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 100;
-  }
-}
-
-.circular-chart.orange .circle {
-  stroke: #ff9f00;
-}
-
-.circular-chart.green .circle {
-  stroke: #4CC790;
-}
-
-.circular-chart.blue .circle {
-  stroke: #3c9ee5;
-}
-
-.percentage {
-  fill: #666;
-  font-family: sans-serif;
-  font-size: 0.5em;
-  text-anchor: middle;
-} */
