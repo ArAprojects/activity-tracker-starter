@@ -20,7 +20,7 @@ $(document).ready(() => {
     $('.specific-widget-area').removeClass('none')
     staticUser = $userRepository.currentUser.returnFirstName()
     chart.data.labels[0] = $userRepository.currentUser.returnFirstName()
-    console.log($userRepository.currentUser.currentUserData.dailyStepGoal)
+    console.log($hydrationRepository.returnWeeklyOz("13/08/2019"))
     chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal
     chart.update()
   });
@@ -33,10 +33,9 @@ $(document).ready(() => {
 
         datasets: [
           {
-            // label: "Population (millions)",
+            label: "hi",
             backgroundColor: ["#3e95cd", "#8e5ea2"],
             data: [2478,6960],
-
           }
         ]
       },
@@ -71,6 +70,51 @@ $(document).ready(() => {
         }
       }
   });
+
+  var lineChart = new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999, "Today"],
+    datasets: [{
+        data: [86,114,106,106,107,111,133,221,783,2478],
+        label: "Water consumed this week",
+        borderColor: "#3e95cd",
+        fill: true,
+        backgroundColor: "rgba(32, 162, 219, 0.3)",
+      }
+    ]
+  },
+  options: {
+    responsive: false,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+     },
+    title: {
+      padding: 20,
+      fontColor: "white",
+      fontSize: 18,
+      display: true,
+      text: 'Water consumed this week!'
+    },
+    scales: {
+      xAxes: [{
+          ticks: {
+              maxTicksLimit: 7,
+              fontColor: "white",
+              fontSize: 14,
+            }
+          }],
+        yAxes: [{
+            ticks: {
+                fontColor: "white",
+                fontSize: 14,
+                beginAtZero: true
+            }
+        }]
+    }
+  }
+});
 
 
 
