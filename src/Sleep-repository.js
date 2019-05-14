@@ -12,7 +12,7 @@ class SleepRepository {
   }
 
   returnSleepData(userId) {
-    return this.filepathway.find(sleepUser => sleepUser.userID == userId);
+    return this.filepathway.find(user => user.userID == userId);
   }
 
   returnAveSleepQualityForAllUsers() {

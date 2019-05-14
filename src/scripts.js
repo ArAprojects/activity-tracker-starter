@@ -42,7 +42,7 @@ $(document).ready(() => {
         maintainAspectRatio: false,
         legend: {
           display: false,
-         },
+        },
         title: {
           padding: 20,
           display: true,
@@ -87,7 +87,7 @@ $(document).ready(() => {
     maintainAspectRatio: false,
     legend: {
       display: false,
-     },
+    },
     title: {
       padding: 20,
       fontColor: "white",

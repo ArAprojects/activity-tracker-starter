@@ -1,13 +1,13 @@
 const chai = require('chai');
 const expect = chai.expect;
 const Activity = require('../src/Activity');
-const activityTestData = require('../data/activity-test-data');
+const singleUserData = require('../data/activity-test-data');
 
 describe('Activity', function() {
 
   let activity;
   beforeEach(function() {
-    activity = new Activity(activityTestData);
+    activity = new Activity(singleUserData);
   });
 
   it('should be a function', function() {
@@ -27,15 +27,15 @@ describe('Activity', function() {
   });
 
   it('should have a method that returns how many minutes active did they average for a given week (7 days)', function() {
-    expect(activity.returnAveWeeklyActivityMinutes("14/07/2019")).to.equal();
+    expect(activity.returnAveWeeklyActivityMinutes("14/07/2019")).to.equal(1088);
   });
 
   it('should have a method that returns whether they reached their step goal for a given day (specified by a date)', function() {
-    expect(activity.returnStepGoalAchievement("14/07/2019", userStepGoal)).to.equal(true/false);
+    expect(activity.returnStepGoalAchievement("14/07/2019", 8000)).to.equal(true);
   });
 
   it('should have a method that returns all the days they exceeded their step goal', function() {
-    expect(activity.returnTotalExceededStepGoals(14000)).to.eql([Array (9)]);
+    expect(activity.returnTotalExceededStepGoals(14500)).to.eql([ '19/05/2019' ]);
   });
 
   it('should have a method that returns their all-time stair climbing record', function() {

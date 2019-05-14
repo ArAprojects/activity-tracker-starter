@@ -1,6 +1,6 @@
 if (typeof module !== 'undefined') {
-  Activity = require('../src/Sleep');
-  activityPathway = require('../data/activity-test-data');
+  Activity = require('../src/Activity');
+  activityPathway = require('../data/activityRepo-test-data');
 } else {
   activityPathway = activityData;
 }
@@ -8,11 +8,11 @@ if (typeof module !== 'undefined') {
 class ActivityRepository {
   constructor(userId) {
     this.filepathway = activityPathway;
-    this.userSleepData = new Activity(this.returnActivityData(userId));
+    this.userActivityData = new Activity(this.returnActivityData(userId));
   }
 
   returnActivityData(userId) {
-    return this.filepathway.find(activityUser => activityUser.userID == userId);
+    return this.filepathway.find(user => user.userID == userId);
   }
 
   returnAveStairsClimbedByDate(specificDate) {
