@@ -8,7 +8,9 @@ if (typeof module !== 'undefined') {
 class UserRepository {
   constructor(userId) {
     this.filepathway = filepathway;
-    this.currentUser = new User(this.returnData(userId));
+    this.currentUser = new User(this.returnData(userId[0]));
+    this.userFriend1 = new User(this.returnData(userId[1]));
+    this.userFriend2 = new User(this.returnData(userId[2]));
   }
 
   returnData(userId) {

@@ -31,7 +31,15 @@ describe('User', function() {
   });
 
   it('should be able to return a user\'s first name only', function() {
-    expect(user.returnFirstName()).to.eql('Nyasia');
+    expect(user.returnFirstName()).to.equal('Nyasia');
+  });
+
+  it('should have a method that returns the user\'s stride length', function() {
+    expect(user.returnStrideLength()).to.equal(4.7);
+  });
+
+  it('should have a method that returns the user\'s daily step goal', function() {
+    expect(user.returnDailyStepGoal()).to.equal(8000);
   });
 
 });
