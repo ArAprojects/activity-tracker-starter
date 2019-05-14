@@ -29,20 +29,45 @@ $(document).ready(() => {
   var chart = new Chart(document.getElementById("bar-chart"), {
       type: 'bar',
       data: {
-        labels: ["anything", "Asia"],
+        labels: ["anything", "Users"],
+
         datasets: [
           {
-            label: "Population (millions)",
+            // label: "Population (millions)",
             backgroundColor: ["#3e95cd", "#8e5ea2"],
-            data: [2478,6960]
+            data: [2478,6960],
+
           }
         ]
       },
       options: {
-        legend: { display: false },
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+         },
         title: {
+          padding: 20,
           display: true,
-          text: 'Predicted world population (millions) in 2050'
+          text: 'User-Goal VS average-user-goal',
+          fontColor: "white",
+          fontSize: 18
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  fontColor: "white",
+                  fontSize: 16,
+                }
+              }],
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 16,
+                    maxTicksLimit: 6,
+                    beginAtZero: true
+                }
+            }]
         }
       }
   });
