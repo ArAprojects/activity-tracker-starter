@@ -7,32 +7,47 @@
   </head>
   <body>
     <header>
-      <img class="run-guy" src="../assets/run.svg" alt="">
-      <h1>Activity Tracker</h1>
-      <img class="run-guy" src="../assets/run.svg" alt="">
+      <article class="title">
+        <h1>Activity Tracker </h1>
+        <img class="run-guy" src="../assets/run.svg" alt="really fast stick-person">
       </article>
     </header>
     <main>
-      <section class="photo-and-info">
-          <img class="pig" src="../assets/unicorn.svg" alt="">
-        <div class="all-content">
-          <section class="user-data column">
-            <p class="user-name"></p>
-            <p class="user-address">---- Click on the user to display specific stats!</p>
-            <p class="user-email"></p>
-            <!-- <p class="average-steps">Average Steps:</p>
-            <p class="find-most-common-state">Most Common State:</p>
-          </section> -->
-      </section>
-        <section class="hydration column">
-          <article class="average-daily-ounces">
-          </article>
-          <article class="specific-daily-ounces">
-          </article>
-          <article class="weekly-ounces">
-          </article>
+      <div class="welcome-banner">
+        <section class="photo-and-info">
+          <img class="pig" src="../assets/stickman.svg" alt="user profile picture, also stick person">
+          <div class="specific-content">
+            <section class="user-data column">
+              <p class="user-name"></p>
+              <p class="user-address">---- Click on the user to display specific stats!</p>
+              <p class="user-email"></p>
+            </section>
+          </div>
+        </section>
+        <section class="specific-user-section">
+          <h2 class="welcome-message">Welcome!</h2>
+          <h4 class="intro-message"></h4>
+          <h4 class="you"><h4>
         </section>
       </div>
+      <div class="widget-area">
+        <section class="none specific-widget-area">
+          <div class="widget user">
+            <canvas id="bar-chart" width="250" height="275"></canvas>
+          </div>
+          <div class="widget hydration">
+            <canvas id="line-chart" width="500" height="275"></canvas>
+          </div>
+          <div class="widget activity">
+            <h4>Activity</h4>
+          </div>
+        </section>
+        <section class="general-widget-area">
+        </section>
+      </div>
+
+
+
       <!-- <div class="flex-wrapper">
         <div class="single-chart">
           <svg viewBox="0 0 36 36" class="circular-chart orange">
@@ -95,6 +110,7 @@
     <script type="text/javascript" src="./Hydration.js"></script>
     <script type="text/javascript" src="./Hydration-repository.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script type="text/javascript" src="./scripts.js"></script>
   </body>
 </html>
