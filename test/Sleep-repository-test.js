@@ -1,13 +1,12 @@
 const chai = require('chai');
 const expect = chai.expect;
 const SleepRepository = require('../src/Sleep-repository');
-const sleepTestData = require('../data/sleepRepo-test-data');
 
 describe('SleepRepository', function() {
 
   let sleepRepository;
   beforeEach(function() {
-    sleepRepository = new SleepRepository(sleepTestData);
+    sleepRepository = new SleepRepository();
   });
 
   it('should be a function', function() {

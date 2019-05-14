@@ -27,15 +27,15 @@ describe('Sleep', function() {
   });
 
   it('should have a method that returns how many hours they slept for a specific day (identified by a date)', function() {
-    expect(sleep.returnHoursSleptByDate("07/05/2019")).to.equal(10.7);
+    expect(sleep.returnHoursSleptByDate('07/05/2019')).to.equal(10.7);
   });
 
   it('should have a method that returns how many hours slept each day over the course of a given 7 day week', function() {
-    expect(sleep.returnWeekOfHoursByDate("07/05/2019")).to.eql([ 10.7, 8.1, 4.5, 10.7, 5.6, 10.1, 10.1 ]);
+    expect(sleep.returnWeekOfHoursByDate('28/07/2019')).to.eql([ 8.1, 4.3, 5.7, 9.5, 4.4, 7.4, 10.1 ]);
   });
 
   it('should have a method that returns their sleep quality each day over the course of a given 7 day week', function() {
-    expect(sleep.returnWeekOfQualityByDate("07/05/2019")).to.eql([ 4.8, 1.9, 3.4, 4.3, 3.5, 1.7, 3.2 ]);
+    expect(sleep.returnWeekOfQualityByDate('28/07/2019')).to.eql([ 1.4, 3, 2.9, 2.1, 4.8, 2.1, 2.9 ]);
   });
 
 });
