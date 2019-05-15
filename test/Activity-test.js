@@ -26,8 +26,12 @@ describe('Activity', function() {
     expect(activity.returnMinutesActiveByDate("14/07/2019")).to.equal(262);
   });
 
+  it('should have a method that returns how many minutes were they active for a given day specified by a date', function() {
+    expect(activity.returnUserStepsByDate("14/07/2019")).to.equal(9881);
+  });
+
   it('should have a method that returns how many flights of stairs climbed for a given day specified by a date', function() {
-    expect(activity.returnStairsClimbedByDate("14/07/2019")).to.equal(22);
+    expect(activity.returnFlightsOfStairsByDate("14/07/2019")).to.equal(22);
   });
 
   it('should have a method that returns how many minutes active did they average for a given week (7 days)', function() {
