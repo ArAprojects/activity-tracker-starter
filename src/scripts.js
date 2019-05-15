@@ -5,6 +5,7 @@ $('#sleep-amount-line-chart').hide()
 
   $('.pig').click(function() {
     let randomUser = generateRandomUser();
+    const $activityRepository = new ActivityRepository(randomUser)
     const $userRepository = new UserRepository(randomUser);
     const $hydrationRepository = new HydrationRepository(randomUser);
     const $sleepRepository = new SleepRepository(randomUser);
@@ -19,7 +20,10 @@ $('#sleep-amount-line-chart').hide()
     $('.you').css('color', randomColorChange);
     $('.specific-widget-area').removeClass('none');
     $('.general-widget-area').removeClass('none')
-
+    console.log(compareChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnMilesWalkedByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength))
+    compareChart.data.datasets[0].data[2] = $activityRepository.userActivityData.returnflightsOfStairsByDate("13/08/2019") / 10
+    compareChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnMilesWalkedByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength)
+    compareChart.data.datasets[0].data[1] = $activityRepository.userActivityData.returnMinutesActiveByDate("13/08/2019") / 60;
     sleepAmountLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfHoursByDate("13/08/2019")
     sleepQualityLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfQualityByDate("13/08/2019")
     sleepQualityChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
@@ -35,6 +39,8 @@ $('#sleep-amount-line-chart').hide()
     sleepQualityChart.data.datasets[0].backgroundColor[0] = randomColorChange;
     sleepChart.data.datasets[0].backgroundColor[0] = randomColorChange;
     lineChart.data.datasets[0].backgroundColor = randomColorChange;
+    compareChart.data.datasets[0].backgroundColor = randomColorChange;
+    compareChart.update();
     chart.update();
     lineChart.update();
     sleepChart.update();
@@ -61,7 +67,9 @@ $('#sleep-amount-line-chart').hide()
         datasets: [
           {
             label: "hi",
-            backgroundColor: ["anything", "grey"],
+            backgroundColor: ["anything", "#606060"],
+            borderColor: "white",
+            borderWidth: 2,
             data: [2478,6960],
           }
         ]
@@ -150,7 +158,9 @@ var sleepChart = new Chart(document.getElementById("sleep-chart"), {
       datasets: [
         {
           label: "hi",
-          backgroundColor: ["red", "grey"],
+          backgroundColor: ["red", "#606060"],
+          borderColor: "white",
+          borderWidth: 2,
           data: [2478,7.6],
         }
       ]
@@ -195,7 +205,9 @@ var sleepQualityChart = new Chart(document.getElementById("sleep-quality-chart")
       datasets: [
         {
           label: "hi",
-          backgroundColor: ["red", "grey"],
+          backgroundColor: ["red", "#606060"],
+          borderColor: "white",
+          borderWidth: 2,
           data: [2478,3.1],
         }
       ]
@@ -324,6 +336,57 @@ options: {
 }
 });
 
+var compareChart = new Chart(document.getElementById("compare-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Miles-walked", "Hours-Active", "flightsOfStairs-in-10's"],
+      datasets: [
+        {
+          label: "Africa",
+          backgroundColor: "#3e95cd",
+          borderColor: "white",
+          borderWidth: 2,
+          data: [3,5,8]
+        }, {
+          label: "Europe",
+          borderColor: "white",
+          borderWidth: 2,
+          backgroundColor: "#606060",
+          data: [6.5,2.5,2.6]
+        }
+      ]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      legend: {
+        display: false,
+       },
+      title: {
+        padding: 20,
+        display: true,
+        text: 'User vs all Users ',
+        fontColor: "white",
+        fontSize: 18
+      },
+      scales: {
+        xAxes: [{
+            ticks: {
+                maxTicksLimit: 7,
+                fontColor: "white",
+                fontSize: 14,
+              }
+            }],
+          yAxes: [{
+              ticks: {
+                  fontColor: "white",
+                  fontSize: 14,
+                  beginAtZero: true
+              }
+          }]
+      }
+    }
+});
 
 
 

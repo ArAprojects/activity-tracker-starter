@@ -13,6 +13,11 @@ class Activity {
     return this.userActivityData.activityData[index].minutesActive;
   }
 
+  returnflightsOfStairsByDate(specifedDate) {
+    let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
+    return this.userActivityData.activityData[index].flightsOfStairs;
+  }
+
   returnAveWeeklyActivityMinutes(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData.slice(index - 7, index).reduce((acc, curr) => acc += curr.minutesActive, 0);
