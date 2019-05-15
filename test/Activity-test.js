@@ -19,19 +19,31 @@ describe('Activity', function() {
   });
 
   it('should have a method that returns the miles a user has walked based on their number of steps given a specified date', function() {
-    expect(activity.returnMilesWalkedByDate("14/07/2019", 4.5)).to.equal(8.42);
+    expect(activity.returnMilesWalkedWeeklyByDate("13/08/2019", 4.2)).to.eql([ 3.71, 5.64, 7.65, 2.03, 6.88, 7.81, 11.15 ]);
   });
 
   it('should have a method that returns how many minutes were they active for a given day specified by a date', function() {
     expect(activity.returnMinutesActiveByDate("14/07/2019")).to.equal(262);
   });
 
+  it('should have a method that returns how many minutes were they active for a given day specified by a date', function() {
+    expect(activity.returnUserStepsByDate("14/07/2019")).to.equal(9881);
+  });
+
+  it('should have a method that returns how many minutes were they active for a given day specified by a date', function() {
+    expect(activity.returnMilesWalkedByDate("13/08/2019", 4.2)).to.equal(11.15);
+  });
+
+  it('should have a method that returns how many minutes were they active for a given day specified by a date', function() {
+    expect(activity.returnFlightsOfStairsByDate("13/08/2019")).to.equal(38);
+  });
+
   it('should have a method that returns how many flights of stairs climbed for a given day specified by a date', function() {
-    expect(activity.returnStairsClimbedByDate("14/07/2019")).to.equal(22);
+    expect(activity.returnFlightsOfStairsWeeklyByDate("13/08/2019")).to.eql([ 1.6, 2.4, 3.6, 4.8, 1.5, 1, 3.8 ]);
   });
 
   it('should have a method that returns how many minutes active did they average for a given week (7 days)', function() {
-    expect(activity.returnAveWeeklyActivityMinutes("14/07/2019")).to.equal(1140);
+    expect(activity.returnAveWeeklyActivityHours("13/08/2019")).to.eql([ 3.67, 0.43, 3.23, 1.98, 1.67, 4.72, 1.3 ]);
   });
 
   it('should have a method that returns whether they reached their step goal for a given day (specified by a date)', function() {

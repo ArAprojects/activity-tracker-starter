@@ -3,14 +3,25 @@ class Activity {
     this.userActivityData = singleUserData;
   }
 
-  returnMilesWalkedByDate(specifedDate, userStrideLength) {
+  returnMilesWalkedWeeklyByDate(specifedDate, userStrideLength) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
-    return Number(((this.userActivityData.activityData[index].numSteps * userStrideLength) / 5280).toFixed(2));
+    let weeklyData = this.userActivityData.activityData.slice(index - 6, index + 1);
+    return weeklyData.map(day => parseFloat(((day.numSteps * userStrideLength) / 5280).toFixed(2)));
   }
 
   returnMinutesActiveByDate(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData[index].minutesActive;
+  }
+
+  returnMilesWalkedByDate(specifedDate, userStrideLength) {
+    let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
+    return Number(((this.userActivityData.activityData[index].numSteps * userStrideLength) / 5280).toFixed(2));
+  }
+
+  returnFlightsOfStairsByDate(specifedDate) {
+    let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
+    return this.userActivityData.activityData[index].flightsOfStairs;
   }
   
   returnUserStepsByDate(specifedDate) {
@@ -18,14 +29,16 @@ class Activity {
     return this.userActivityData.activityData[index].numSteps;
   }
 
-  returnFlightsOfStairsByDate(specifedDate) {
+  returnFlightsOfStairsWeeklyByDate(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
-    return this.userActivityData.activityData[index].flightsOfStairs;
+    let weeklyData = this.userActivityData.activityData.slice(index - 6, index + 1);
+    return weeklyData.map(day => parseFloat((day.flightsOfStairs / 10).toFixed(2)));
   }
 
-  returnAveWeeklyActivityMinutes(specifedDate) {
+  returnAveWeeklyActivityHours(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
-    return this.userActivityData.activityData.slice(index - 6, index + 1).reduce((acc, curr) => acc += curr.minutesActive, 0);
+    let weeklyData = this.userActivityData.activityData.slice(index - 6, index + 1);
+    return weeklyData.map(day => parseFloat((day.minutesActive / 60).toFixed(2)));
   }
 
   returnStepGoalAchievement(specifedDate, userStepGoal) {
