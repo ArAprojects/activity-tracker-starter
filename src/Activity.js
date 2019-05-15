@@ -43,19 +43,19 @@ class Activity {
   }
 
   returnIncreasingStepTrend() {
-    var streak = [];
-    var streakDates = [];
-    var userStepData = this.userActivityData.activityData;
+    let moreStepsStreak = [];
+    let moreStepsStreakDates = [];
+    let userStepData = this.userActivityData.activityData;
     userStepData.forEach(user => {
-      if (streak.length >= 3) {
-        streak.shift();
+      if (moreStepsStreak.length >= 3) {
+        moreStepsStreak.shift();
       }
-      streak.push(user.numSteps);
-      if (streak[2] > streak[1] && streak[1] > streak[0]) {
-        streakDates.push(user.date);
+      moreStepsStreak.push(user.numSteps);
+      if (moreStepsStreak[2] > moreStepsStreak[1] && moreStepsStreak[1] > moreStepsStreak[0]) {
+        moreStepsStreakDates.push(user.date);
       }
     });
-    return streakDates;
+    return moreStepsStreakDates;
   }
 
 }
