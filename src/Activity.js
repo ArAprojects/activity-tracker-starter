@@ -43,7 +43,19 @@ class Activity {
   }
 
   returnIncreasingStepTrend() {
-
+    var streak = [];
+    var streakDates = [];
+    var userStepData = this.userActivityData.activityData;
+    userStepData.forEach(user => {
+      if (streak.length >= 3) {
+        streak.shift();
+      }
+      streak.push(user.numSteps);
+      if (streak[2] > streak[1] && streak[1] > streak[0]) {
+        streakDates.push(user.date);
+      }
+    });
+    return streakDates;
   }
 
 }

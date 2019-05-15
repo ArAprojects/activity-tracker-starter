@@ -51,7 +51,23 @@ describe('Activity', function() {
   });
 
   it('should have a method that shows what days had increasing steps for 3 or more days', function() {
-    expect(activity.returnIncreasingStepTrend()).to.eql([]);
+    expect(activity.returnIncreasingStepTrend()).to.eql([ '10/05/2019',
+    '15/05/2019',
+    '16/05/2019',
+    '19/05/2019',
+    '29/05/2019',
+    '01/06/2019',
+    '06/06/2019',
+    '07/06/2019',
+    '19/06/2019',
+    '05/07/2019',
+    '14/07/2019',
+    '15/07/2019',
+    '24/07/2019',
+    '06/08/2019',
+    '09/08/2019',
+    '12/08/2019',
+    '13/08/2019' ]);
   });
 
 });
