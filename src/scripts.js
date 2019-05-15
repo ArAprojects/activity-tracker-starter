@@ -9,15 +9,10 @@ $('#comparitive-line-chart').hide()
 
     var randomUserList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
     shuffleArrayRandomly(randomUserList);
-    // let randomUser = generateRandomUser();
     const $userRepository = new UserRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
     const $hydrationRepository = new HydrationRepository(randomUserList[0]);
-
-    let randomUser = generateRandomUser();
-    const $activityRepository = new ActivityRepository(randomUser)
-    const $userRepository = new UserRepository(randomUser);
-    const $hydrationRepository = new HydrationRepository(randomUser);
-    const $sleepRepository = new SleepRepository(randomUser);
+    const $sleepRepository = new SleepRepository(randomUserList[0]);
+    const $activityRepository = new ActivityRepository(randomUserList[0]);
 
     var randomColorChange = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
     $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut(1).fadeIn(700);
@@ -29,7 +24,7 @@ $('#comparitive-line-chart').hide()
     $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange);
     $('.widget-area').fadeIn(3000);
-    compareChart.data.datasets[0].data[2] = $activityRepository.userActivityData.returnflightsOfStairsByDate("13/08/2019") / 10
+    compareChart.data.datasets[0].data[2] = $activityRepository.userActivityData.returnFlightsOfStairsByDate("13/08/2019") / 10
     compareChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnMilesWalkedByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength)
     compareChart.data.datasets[0].data[1] = $activityRepository.userActivityData.returnMinutesActiveByDate("13/08/2019") / 60;
     sleepAmountLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfHoursByDate("13/08/2019")
