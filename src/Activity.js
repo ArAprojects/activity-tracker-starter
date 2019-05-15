@@ -12,8 +12,13 @@ class Activity {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData[index].minutesActive;
   }
+  
+  returnUserStepsByDate(specifedDate) {
+    let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
+    return this.userActivityData.activityData[index].numSteps;
+  }
 
-  returnStairsClimbedByDate(specifedDate) {
+  returnFlightsOfStairsByDate(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData[index].flightsOfStairs;
   }
