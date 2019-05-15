@@ -3,6 +3,7 @@ $('#sleep-quality-chart').hide()
 $('#sleep-amount-line-chart').hide()
 $('.widget-area').hide();
 $('#steps-today-chart').hide()
+$('#comparitive-line-chart').hide()
 
   $('.pig').click(function() {
     let randomUser = generateRandomUser();
@@ -65,6 +66,12 @@ $('#steps-today-chart').hide()
       $('#bar-chart').toggle()
       $('#steps-today-chart').toggle()
   })
+    $('.activity-2').click(function() {
+      $('#comparitive-line-chart').toggle()
+      $('#compare-chart').toggle()
+  })
+
+
 
 
   var chart = new Chart(document.getElementById("bar-chart"), {
@@ -448,11 +455,24 @@ type: 'line',
 data: {
   labels: [1500,1600,1700,1750,1800,2000, "Today"],
   datasets: [{
-      data: [],
+      data: [12, 15, 14, 14, 16],
       label: "Water consumed this week",
       borderColor: "red",
-      fill: true,
-      backgroundColor: "rgba(32, 162, 219, 0.3)",
+      // fill: true,
+      // backgroundColor: "#40E1ECF4",
+    }, {
+      data: [11, 15, 15, 12, 11],
+      label: "Water consumed this week",
+      borderColor: "blue",
+      // fill: true,
+      // backgroundColor: "#00E1ECF4",
+    },
+    {
+      data: [13, 18, 15, 11, 12],
+      label: "Water consumed this week",
+      borderColor: "black",
+      // fill: true,
+      // backgroundColor: "#00e3CF4",
     }
   ]
 },
@@ -487,8 +507,6 @@ options: {
   }
 }
 });
-
-
 
 
   function generateRandomUser() {
