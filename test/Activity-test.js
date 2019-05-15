@@ -26,8 +26,12 @@ describe('Activity', function() {
     expect(activity.returnMinutesActiveByDate("14/07/2019")).to.equal(262);
   });
 
+  it('should have a method that returns how many flights of stairs climbed for a given day specified by a date', function() {
+    expect(activity.returnStairsClimbedByDate("14/07/2019")).to.equal(22);
+  });
+
   it('should have a method that returns how many minutes active did they average for a given week (7 days)', function() {
-    expect(activity.returnAveWeeklyActivityMinutes("14/07/2019")).to.equal(1088);
+    expect(activity.returnAveWeeklyActivityMinutes("14/07/2019")).to.equal(1140);
   });
 
   it('should have a method that returns whether they reached their step goal for a given day (specified by a date)', function() {
@@ -40,6 +44,14 @@ describe('Activity', function() {
 
   it('should have a method that returns their all-time stair climbing record', function() {
     expect(activity.returnAllTimeStairRecord()).to.eql(50);
+  });
+
+  it('should have a method that returns their step count for a week', function() {
+    expect(activity.returnWeeklyStepCount('25/05/2019')).to.eql(65064);
+  });
+
+  it('should have a method that shows what days had increasing steps for 3 or more days', function() {
+    expect(activity.returnIncreasingStepTrend()).to.eql([]);
   });
 
 });

@@ -22,7 +22,7 @@ describe('SleepRepository', function() {
   });
 
   it('should have a method that returns all users whos average sleep quality is greater than 3 for a given 7 day week', function() {
-    expect(sleepRepository.returnSleepQualityGreaterThan3fForWeek('07/07/2019')).to.eql([ [ 1, 3.6 ], [ 2, 3.5 ] ]);
+    expect(sleepRepository.returnSleepQualityGreaterThan3ForWeek('07/07/2019')).to.eql([ [ 1, 3.31 ], [ 2, 3.3 ] ]);
   });
 
   it('should have a method that returns, for a given day (identified by the date), find the users who slept the most number of hours (one or more if they tied)', function() {
