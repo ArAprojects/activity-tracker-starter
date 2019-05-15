@@ -24,36 +24,41 @@ $('#comparitive-line-chart').hide()
     $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange);
     $('.widget-area').fadeIn(3000);
-    compareChart.data.datasets[0].data[2] = $activityRepository.userActivityData.returnFlightsOfStairsByDate("13/08/2019") / 10
+    chart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal;
+    chart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    compareChart.data.datasets[0].backgroundColor = randomColorChange;
     compareChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnMilesWalkedByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength)
     compareChart.data.datasets[0].data[1] = $activityRepository.userActivityData.returnMinutesActiveByDate("13/08/2019") / 60;
+    compareChart.data.datasets[0].data[2] = $activityRepository.userActivityData.returnFlightsOfStairsByDate("13/08/2019") / 10
+    lineChart.data.datasets[0].backgroundColor = randomColorChange;
+    lineChart.data.datasets[0].data = $hydrationRepository.userHydrationData.returnWeeklyOz("13/08/2019")
+    sleepAmountLineChart.data.datasets[0].backgroundColor = randomColorChange;
     sleepAmountLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfHoursByDate("13/08/2019")
-    sleepQualityLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfQualityByDate("13/08/2019")
-    sleepQualityChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
-    sleepQualityChart.data.datasets[0].data[0] = $sleepRepository.userSleepData.returnAveSleepQual()
+    sleepChart.data.datasets[0].backgroundColor[0] = randomColorChange;
     sleepChart.data.datasets[0].data[0] = $sleepRepository.userSleepData.returnAveDailySleepHours()
     sleepChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
-    lineChart.data.datasets[0].data = $hydrationRepository.userHydrationData.returnWeeklyOz("13/08/2019")
-    chart.data.labels[0] = $userRepository.currentUser.returnFirstName();
-    chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal;
-    stepsTodayChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
-    stepsTodayChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnUserStepsByDate("13/08/2019")
-    chart.data.datasets[0].backgroundColor[0] = randomColorChange;
-    stepsTodayChart.data.datasets[0].backgroundColor[0] = randomColorChange;
-    sleepAmountLineChart.data.datasets[0].backgroundColor = randomColorChange;
-    sleepQualityLineChart.data.datasets[0].backgroundColor = randomColorChange;
     sleepQualityChart.data.datasets[0].backgroundColor[0] = randomColorChange;
-    sleepChart.data.datasets[0].backgroundColor[0] = randomColorChange;
-    lineChart.data.datasets[0].backgroundColor = randomColorChange;
-    compareChart.data.datasets[0].backgroundColor = randomColorChange;
+    sleepQualityChart.data.datasets[0].data[0] = $sleepRepository.userSleepData.returnAveSleepQual()
+    sleepQualityChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    sleepQualityLineChart.data.datasets[0].backgroundColor = randomColorChange;
+    sleepQualityLineChart.data.datasets[0].data = $sleepRepository.userSleepData.returnWeekOfQualityByDate("13/08/2019");
+    stepsTodayChart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    stepsTodayChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnUserStepsByDate("13/08/2019");
+    stepsTodayChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    comparitiveLineChart.data.datasets[0].data = $activityRepository.userActivityData.returnAveWeeklyActivityHours("13/08/2019");
+    comparitiveLineChart.data.datasets[1].data = $activityRepository.userActivityData.returnMilesWalkedWeeklyByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength);
+    comparitiveLineChart.data.datasets[2].data = $activityRepository.userActivityData.returnFlightsOfStairsWeeklyByDate("13/08/2019");
     compareChart.update();
     chart.update();
     stepsTodayChart.update();
     lineChart.update();
     sleepChart.update();
     sleepQualityChart.update();
-    sleepQualityLineChart.update()
-    sleepAmountLineChart.update()
+    sleepQualityLineChart.update();
+    sleepAmountLineChart.update();
+    comparitiveLineChart.update();
+
   });
 
 
@@ -440,7 +445,7 @@ var compareChart = new Chart(document.getElementById("compare-chart"), {
       maintainAspectRatio: false,
       legend: {
         display: false,
-       },
+      },
       title: {
         padding: 20,
         display: true,
@@ -472,22 +477,25 @@ type: 'line',
 data: {
   labels: [1500,1600,1700,1750,1800,2000, "Today"],
   datasets: [{
-      data: [12, 15, 14, 14, 16],
-      label: "Water consumed this week",
+      data: [],
+      label: "Hours active",
       borderColor: "red",
+      labelColor: "white"
       // fill: true,
       // backgroundColor: "#40E1ECF4",
     }, {
-      data: [11, 15, 15, 12, 11],
-      label: "Water consumed this week",
+      data: [],
+      label: "Miles walked",
       borderColor: "blue",
+      fontColor: "white"
       // fill: true,
       // backgroundColor: "#00E1ECF4",
     },
     {
-      data: [13, 18, 15, 11, 12],
-      label: "Water consumed this week",
-      borderColor: "black",
+      data: [],
+      label: "Stair-flights in 10s",
+      borderColor: "white",
+      fontColor: "white"
       // fill: true,
       // backgroundColor: "#00e3CF4",
     }
@@ -497,7 +505,10 @@ options: {
   responsive: false,
   maintainAspectRatio: false,
   legend: {
-    display: false,
+    labels: {
+      fontColor: 'white',
+      fontSize: 14
+    }
   },
   title: {
     padding: 20,
