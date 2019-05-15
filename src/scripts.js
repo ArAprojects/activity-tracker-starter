@@ -1,7 +1,8 @@
 $(document).ready(() => {
 $('#sleep-quality-chart').hide()
 $('#sleep-amount-line-chart').hide()
-
+$('.widget-area').hide();
+$('#steps-today-chart').hide()
 
   $('.pig').click(function() {
     let randomUser = generateRandomUser();
@@ -18,9 +19,7 @@ $('#sleep-amount-line-chart').hide()
     $('.intro-message').html('Below you\'ll find a list of stats curated just for').fadeOut(1).fadeIn(700);
     $('.you').html('You!').fadeOut(1).fadeIn(700);
     $('.you').css('color', randomColorChange);
-    $('.specific-widget-area').removeClass('none');
-    $('.general-widget-area').removeClass('none')
-    console.log(compareChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnMilesWalkedByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength))
+    $('.widget-area').fadeIn(3000);
     compareChart.data.datasets[0].data[2] = $activityRepository.userActivityData.returnflightsOfStairsByDate("13/08/2019") / 10
     compareChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnMilesWalkedByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength)
     compareChart.data.datasets[0].data[1] = $activityRepository.userActivityData.returnMinutesActiveByDate("13/08/2019") / 60;
@@ -33,7 +32,10 @@ $('#sleep-amount-line-chart').hide()
     lineChart.data.datasets[0].data = $hydrationRepository.userHydrationData.returnWeeklyOz("13/08/2019")
     chart.data.labels[0] = $userRepository.currentUser.returnFirstName();
     chart.data.datasets[0].data[0] = $userRepository.currentUser.currentUserData.dailyStepGoal;
+    stepsTodayChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    stepsTodayChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnUserStepsByDate("13/08/2019")
     chart.data.datasets[0].backgroundColor[0] = randomColorChange;
+    stepsTodayChart.data.datasets[0].backgroundColor[0] = randomColorChange;
     sleepAmountLineChart.data.datasets[0].backgroundColor = randomColorChange;
     sleepQualityLineChart.data.datasets[0].backgroundColor = randomColorChange;
     sleepQualityChart.data.datasets[0].backgroundColor[0] = randomColorChange;
@@ -42,6 +44,7 @@ $('#sleep-amount-line-chart').hide()
     compareChart.data.datasets[0].backgroundColor = randomColorChange;
     compareChart.update();
     chart.update();
+    stepsTodayChart.update();
     lineChart.update();
     sleepChart.update();
     sleepQualityChart.update();
@@ -57,6 +60,10 @@ $('#sleep-amount-line-chart').hide()
     $('.sleep').click(function() {
       $('#sleep-quality-line-chart').toggle()
       $('#sleep-amount-line-chart').toggle()
+  })
+    $('.user').click(function() {
+      $('#bar-chart').toggle()
+      $('#steps-today-chart').toggle()
   })
 
 
@@ -105,6 +112,54 @@ $('#sleep-amount-line-chart').hide()
         }
       }
   });
+
+  var stepsTodayChart = new Chart(document.getElementById("steps-today-chart"), {
+      type: 'bar',
+      data: {
+        labels: ["anything", "Users"],
+        datasets: [
+          {
+            label: "hi",
+            backgroundColor: ["anything", "#606060"],
+            borderColor: "white",
+            borderWidth: 2,
+            data: [2478,7850],
+          }
+        ]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        title: {
+          padding: 20,
+          display: true,
+          text: 'Steps-Today!',
+          fontColor: "white",
+          fontSize: 18
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  fontColor: "white",
+                  fontSize: 16,
+                }
+              }],
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 16,
+                    maxTicksLimit: 6,
+                    beginAtZero: true
+                }
+            }]
+        }
+      }
+  });
+
+
 
   var lineChart = new Chart(document.getElementById("line-chart"), {
   type: 'line',
@@ -386,6 +441,51 @@ var compareChart = new Chart(document.getElementById("compare-chart"), {
           }]
       }
     }
+});
+
+var comparitiveLineChart = new Chart(document.getElementById("comparitive-line-chart"), {
+type: 'line',
+data: {
+  labels: [1500,1600,1700,1750,1800,2000, "Today"],
+  datasets: [{
+      data: [],
+      label: "Water consumed this week",
+      borderColor: "red",
+      fill: true,
+      backgroundColor: "rgba(32, 162, 219, 0.3)",
+    }
+  ]
+},
+options: {
+  responsive: false,
+  maintainAspectRatio: false,
+  legend: {
+    display: false,
+  },
+  title: {
+    padding: 20,
+    fontColor: "white",
+    fontSize: 18,
+    display: true,
+    text: 'Sleep Amount this week!'
+  },
+  scales: {
+    xAxes: [{
+        ticks: {
+            maxTicksLimit: 7,
+            fontColor: "white",
+            fontSize: 14,
+          }
+        }],
+      yAxes: [{
+          ticks: {
+              fontColor: "white",
+              fontSize: 14,
+              beginAtZero: true
+          }
+      }]
+  }
+}
 });
 
 

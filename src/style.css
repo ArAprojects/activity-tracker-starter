@@ -56,10 +56,11 @@ main {
   flex-direction: column;
   justify-content: space-around;
   color: #d6d7e4;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .35)), url(../assets/polygon.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)), url(../assets/polygon.jpg);
   /* background-image: url(../assets/polygon.jpg); */
   /* background-position: center; */
   background-size: cover;
+
 }
 
 .welcome-banner {
