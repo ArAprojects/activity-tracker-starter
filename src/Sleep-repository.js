@@ -23,18 +23,23 @@ class SleepRepository {
     }, 0).toFixed(1));
   }
 
-  returnSleepQualityGreaterThan3fForWeek(searchDate) {
-    let dateIndex = this.filepathway.map(user => user.sleepData.findIndex(day => day.date == searchDate));
-    let weeklyData = this.filepathway.map(user => user.sleepData.slice(dateIndex[0], dateIndex[0] + 7));
-    let weeklySleepQual = weeklyData.map(user => user.map(day => day.sleepQuality));
-    let totalSleepQual = weeklySleepQual.map(user => user.reduce((acc, curr) => acc += curr), 0);
-    let aveSleepQual = totalSleepQual.map(user => user / 7);
-    return aveSleepQual.reduce((acc, curr, index) => {
-      if (curr > 3) {
-        acc.push([index + 1, Number(curr.toFixed(1))]);
+  returnSleepQualityGreaterThan3ForWeek(searchDate) {
+    let indexes = this.filepathway.map(user => user.sleepData.findIndex(day => day.date === searchDate));
+    let result = this.filepathway.reduce((acc, user, idx) => {
+      let weekSleepData = user.sleepData.slice(indexes[idx] - 6, indexes[idx] + 1);
+      let totalSleepQuality = weekSleepData.reduce((acc, data) => {
+        return acc += data.sleepQuality;
+      }, 0);
+      let averageSleepQuality = totalSleepQuality / 7;
+      if(averageSleepQuality >= 3) {
+        acc.push([
+          user.userID, 
+          parseFloat(averageSleepQuality.toFixed(2))
+        ]);
       }
       return acc;
     }, []);
+    return result.length ? result : 'No such users';
   }
 
   returnHeaviestSleeperByDate(searchDate) {

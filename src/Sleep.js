@@ -33,6 +33,22 @@ class Sleep {
       return weekData.map(day => day.sleepQuality);
   }
 
+  returnRegularGoodSleepTrend() {
+    let goodSleepStreak = [];
+    let goodSleepStreakDates = [];
+    let userSleepData = this.userSleepData.sleepData;
+    userSleepData.forEach(user => {
+      if (goodSleepStreak.length >= 3) {
+        goodSleepStreak.shift();
+      }
+      goodSleepStreak.push(user.sleepQuality);
+      if (goodSleepStreak[2] > goodSleepStreak[1] && goodSleepStreak[1] > goodSleepStreak[0]) {
+        goodSleepStreakDates.push(user.date);
+      }
+    });
+    return goodSleepStreakDates;
+  }
+
 }
 
 if (typeof module !== 'undefined') {

@@ -38,4 +38,17 @@ describe('Sleep', function() {
     expect(sleep.returnWeekOfQualityByDate('28/07/2019')).to.eql([ 1.4, 3, 2.9, 2.1, 4.8, 2.1, 2.9 ]);
   });
 
+  it('should have a method that returns what days had sleep quality over 3 for 3 or more days', function() {
+    expect(sleep.returnRegularGoodSleepTrend()).to.eql([ '10/05/2019',
+    '16/05/2019',
+    '17/05/2019',
+    '25/05/2019',
+    '26/05/2019',
+    '10/06/2019',
+    '11/06/2019',
+    '03/07/2019',
+    '08/07/2019',
+    '09/07/2019' ]);
+  });
+
 });

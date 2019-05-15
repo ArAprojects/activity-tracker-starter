@@ -12,20 +12,20 @@ class Activity {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData[index].minutesActive;
   }
-
+  
   returnUserStepsByDate(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData[index].numSteps;
   }
 
-  returnflightsOfStairsByDate(specifedDate) {
+  returnFlightsOfStairsByDate(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
     return this.userActivityData.activityData[index].flightsOfStairs;
   }
 
   returnAveWeeklyActivityMinutes(specifedDate) {
     let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
-    return this.userActivityData.activityData.slice(index - 7, index).reduce((acc, curr) => acc += curr.minutesActive, 0);
+    return this.userActivityData.activityData.slice(index - 6, index + 1).reduce((acc, curr) => acc += curr.minutesActive, 0);
   }
 
   returnStepGoalAchievement(specifedDate, userStepGoal) {
@@ -40,6 +40,27 @@ class Activity {
 
   returnAllTimeStairRecord() {
     return Math.max(...(this.userActivityData.activityData.map(day => day.flightsOfStairs)));
+  }
+
+  returnWeeklyStepCount(specifedDate) {
+    let index = this.userActivityData.activityData.findIndex(day => day.date == specifedDate);
+    return this.userActivityData.activityData.slice(index - 6, index + 1).reduce((acc, curr) => acc += curr.numSteps, 0);
+  }
+
+  returnIncreasingStepTrend() {
+    let moreStepsStreak = [];
+    let moreStepsStreakDates = [];
+    let userStepData = this.userActivityData.activityData;
+    userStepData.forEach(user => {
+      if (moreStepsStreak.length >= 3) {
+        moreStepsStreak.shift();
+      }
+      moreStepsStreak.push(user.numSteps);
+      if (moreStepsStreak[2] > moreStepsStreak[1] && moreStepsStreak[1] > moreStepsStreak[0]) {
+        moreStepsStreakDates.push(user.date);
+      }
+    });
+    return moreStepsStreakDates;
   }
 
 }
