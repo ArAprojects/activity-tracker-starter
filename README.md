@@ -33,7 +33,9 @@ Run tests by typing `mocha` in your terminal in your cloned directory.
 - Display information on the page while maintaining ability to test class properties and methods
 - Create a data dashboard that is easy to use and displays information in a clear way
 
-![Our comp](assets/May-16-2019 08-52-05.gif)
+![Our comp](assets/Our-comp-1.png)
+![Our comp](assets/Our-comp-2.png)
+![Our comp](assets/Our-comp-3.png)
 
 ## Authors
 
