@@ -6,7 +6,7 @@ describe('SleepRepository', function() {
 
   let sleepRepository;
   beforeEach(function() {
-    sleepRepository = new SleepRepository();
+    sleepRepository = new SleepRepository([1, 2, 3]);
   });
 
   it('should be a function', function() {

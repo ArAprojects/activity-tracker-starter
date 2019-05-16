@@ -6,14 +6,14 @@ describe('ActivityRepository', function() {
 
   let activityRepository;
   beforeEach(function() {
-    activityRepository = new ActivityRepository();
+    activityRepository = new ActivityRepository([1, 2, 3]);
   });
 
   it('should be a function', function() {
     expect(ActivityRepository).to.be.a('function');
   });
 
-  it('should be an instance of SleepRepository', function() {
+  it('should be an instance of ActivityRepository', function() {
     expect(activityRepository).to.be.an.instanceof(ActivityRepository);
   });
 

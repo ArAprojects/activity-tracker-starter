@@ -106,13 +106,13 @@ p {
   justify-content: center;
 }
 
-.pig {
+.info {
   width: 145px;
   padding: 20px;
   background-color: lightgrey;
 }
 
-.pig:hover {
+.info:hover {
   border: 2px solid black;
 }
 
