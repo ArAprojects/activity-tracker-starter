@@ -49,10 +49,12 @@ $('#friends-chart').hide()
     comparitiveLineChart.data.datasets[1].data = $activityRepository.userActivityData.returnMilesWalkedWeeklyByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength);
     comparitiveLineChart.data.datasets[2].data = $activityRepository.userActivityData.returnFlightsOfStairsWeeklyByDate("13/08/2019");
     friendsChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    friendsChart.data.labels[1] = $userRepository.userFriend1.returnFirstName();
+    friendsChart.data.labels[2] = $userRepository.userFriend2.returnFirstName();
     friendsChart.data.datasets[0].backgroundColor[0] = randomColorChange;
-//     $activityRepository.userActivityData.returnWeeklyStepCount("13/08/2019");
-//     $activityRepository.friend1ActivityData.returnWeeklyStepCount("13/08/2019");
-//     $activityRepository.friend2ActivityData.returnWeeklyStepCount("13/08/2019");
+    friendsChart.data.datasets[0].data[0] = $activityRepository.userActivityData.returnWeeklyStepCount("13/08/2019");
+    friendsChart.data.datasets[0].data[1] = $activityRepository.friend1ActivityData.returnWeeklyStepCount("13/08/2019");
+    friendsChart.data.datasets[0].data[2] = $activityRepository.friend2ActivityData.returnWeeklyStepCount("13/08/2019");
     compareChart.update();
     chart.update();
     stepsTodayChart.update();
