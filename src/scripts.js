@@ -116,7 +116,7 @@ $('#friends-chart').hide()
         title: {
           padding: 20,
           display: true,
-          text: 'Step-Goals!',
+          text: 'Step Count This Week!',
           fontColor: "white",
           fontSize: 18
         },
