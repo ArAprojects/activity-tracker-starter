@@ -8,7 +8,9 @@ if (typeof module !== 'undefined') {
 class ActivityRepository {
   constructor(userId) {
     this.filepathway = activityPathway;
-    this.userActivityData = new Activity(this.returnActivityData(userId));
+    this.userActivityData = new Activity(this.returnActivityData(userId[0]));
+    this.friend1ActivityData = new Activity(this.returnActivityData(userId[1]));
+    this.friend2ActivityData = new Activity(this.returnActivityData(userId[2]));
   }
 
   returnActivityData(userId) {
