@@ -151,12 +151,21 @@ p {
 }
 
 .activity:hover {
-  transform: scale(1.02);
+  transform: scale(1.10);
 }
 
 .sleep:hover {
-  transform: scale(1.02);
+  transform: scale(1.10);
 }
+
+.user:hover {
+  transform: scale(1.10);
+}
+
+.activity-2:hover {
+  transform: scale(1.10);
+}
+
 
 
 

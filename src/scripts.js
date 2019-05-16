@@ -179,7 +179,7 @@ $('#comparitive-line-chart').hide()
   var lineChart = new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
-    labels: [1500,1600,1700,1750,1800,2000, "Today"],
+    labels: ["13/02","13/03","13/04","13/05","13/06","13/07","Today"],
     datasets: [{
         data: [],
         label: "Water consumed this week",
@@ -333,7 +333,7 @@ var sleepQualityChart = new Chart(document.getElementById("sleep-quality-chart")
 var sleepQualityLineChart = new Chart(document.getElementById("sleep-quality-line-chart"), {
 type: 'line',
 data: {
-  labels: [1500,1600,1700,1750,1800,2000, "Today"],
+  labels: ["13/02","13/03","13/04","13/05","13/06","13/07","Today"],
   datasets: [{
       data: [],
       label: "Water consumed this week",
@@ -378,7 +378,7 @@ options: {
 var sleepAmountLineChart = new Chart(document.getElementById("sleep-amount-line-chart"), {
 type: 'line',
 data: {
-  labels: [1500,1600,1700,1750,1800,2000, "Today"],
+  labels: ["13/02","13/03","13/04","13/05","13/06","13/07","Today"],
   datasets: [{
       data: [],
       label: "Water consumed this week",
@@ -475,7 +475,7 @@ var compareChart = new Chart(document.getElementById("compare-chart"), {
 var comparitiveLineChart = new Chart(document.getElementById("comparitive-line-chart"), {
 type: 'line',
 data: {
-  labels: [1500,1600,1700,1750,1800,2000, "Today"],
+  labels: ["13/02","13/03","13/04","13/05","13/06","13/07","Today"],
   datasets: [{
       data: [],
       label: "Hours active",
