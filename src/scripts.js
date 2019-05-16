@@ -511,7 +511,7 @@ $(document).ready(() => {
         }]
       }
     }
-});
+  });
 
   var compareChart = new Chart(document.getElementById("compare-chart"), {
     type: 'bar',
