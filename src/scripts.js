@@ -11,8 +11,8 @@ $('#friends-chart').hide()
     shuffleArrayRandomly(randomUserList);
     const $userRepository = new UserRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
     const $hydrationRepository = new HydrationRepository(randomUserList[0]);
-    const $sleepRepository = new SleepRepository(randomUserList[0]);
-    const $activityRepository = new ActivityRepository(randomUserList[0]);
+    const $sleepRepository = new SleepRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
+    const $activityRepository = new ActivityRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
     var randomColorChange = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
     $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut(1).fadeIn(700);
     $('.user-address').html('Address: ' + $userRepository.currentUser.currentUserData.address).fadeOut(1).fadeIn(700);
@@ -50,7 +50,9 @@ $('#friends-chart').hide()
     comparitiveLineChart.data.datasets[2].data = $activityRepository.userActivityData.returnFlightsOfStairsWeeklyByDate("13/08/2019");
     friendsChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
     friendsChart.data.datasets[0].backgroundColor[0] = randomColorChange;
-
+//     $activityRepository.userActivityData.returnWeeklyStepCount("13/08/2019");
+//     $activityRepository.friend1ActivityData.returnWeeklyStepCount("13/08/2019");
+//     $activityRepository.friend2ActivityData.returnWeeklyStepCount("13/08/2019");
     compareChart.update();
     chart.update();
     stepsTodayChart.update();

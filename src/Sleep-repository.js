@@ -8,7 +8,9 @@ if (typeof module !== 'undefined') {
 class SleepRepository {
   constructor(userId) {
     this.filepathway = sleepPathway;
-    this.userSleepData = new Sleep(this.returnSleepData(userId));
+    this.userSleepData = new Sleep(this.returnSleepData(userId[0]));
+    this.friend1SleepData = new Sleep(this.returnSleepData(userId[1]));
+    this.friend2SleepData = new Sleep(this.returnSleepData(userId[2]));
   }
 
   returnSleepData(userId) {
