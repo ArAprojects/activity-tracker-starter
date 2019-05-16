@@ -4,16 +4,15 @@ $('#sleep-amount-line-chart').hide()
 $('.widget-area').hide();
 $('#steps-today-chart').hide()
 $('#comparitive-line-chart').hide()
+$('#friends-chart').hide()
 
   $('.pig').click(function() {
-
     var randomUserList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
     shuffleArrayRandomly(randomUserList);
     const $userRepository = new UserRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
     const $hydrationRepository = new HydrationRepository(randomUserList[0]);
     const $sleepRepository = new SleepRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
     const $activityRepository = new ActivityRepository([randomUserList[0], randomUserList[1], randomUserList[2]]);
-
     var randomColorChange = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
     $('.user-name').html('Name: ' + $userRepository.currentUser.currentUserData.name).fadeOut(1).fadeIn(700);
     $('.user-address').html('Address: ' + $userRepository.currentUser.currentUserData.address).fadeOut(1).fadeIn(700);
@@ -49,11 +48,11 @@ $('#comparitive-line-chart').hide()
     comparitiveLineChart.data.datasets[0].data = $activityRepository.userActivityData.returnAveWeeklyActivityHours("13/08/2019");
     comparitiveLineChart.data.datasets[1].data = $activityRepository.userActivityData.returnMilesWalkedWeeklyByDate("13/08/2019", $userRepository.currentUser.currentUserData.strideLength);
     comparitiveLineChart.data.datasets[2].data = $activityRepository.userActivityData.returnFlightsOfStairsWeeklyByDate("13/08/2019");
-    
-    $activityRepository.userActivityData.returnWeeklyStepCount("13/08/2019");
-    $activityRepository.friend1ActivityData.returnWeeklyStepCount("13/08/2019");
-    $activityRepository.friend2ActivityData.returnWeeklyStepCount("13/08/2019");
-
+    friendsChart.data.labels[0] = $userRepository.currentUser.returnFirstName();
+    friendsChart.data.datasets[0].backgroundColor[0] = randomColorChange;
+//     $activityRepository.userActivityData.returnWeeklyStepCount("13/08/2019");
+//     $activityRepository.friend1ActivityData.returnWeeklyStepCount("13/08/2019");
+//     $activityRepository.friend2ActivityData.returnWeeklyStepCount("13/08/2019");
     compareChart.update();
     chart.update();
     stepsTodayChart.update();
@@ -63,6 +62,7 @@ $('#comparitive-line-chart').hide()
     sleepQualityLineChart.update();
     sleepAmountLineChart.update();
     comparitiveLineChart.update();
+    friendsChart.update()
 
   });
 
@@ -83,9 +83,59 @@ $('#comparitive-line-chart').hide()
       $('#comparitive-line-chart').toggle()
       $('#compare-chart').toggle()
   })
+    $('.hydration').click(function() {
+      $('#line-chart').toggle()
+      $('#friends-chart').toggle()
+  })
 
 
 
+
+  var friendsChart = new Chart(document.getElementById("friends-chart"), {
+      type: 'bar',
+      data: {
+        labels: ["user", "friend1", "friend2"],
+        datasets: [
+          {
+            label: "hi",
+            backgroundColor: ["anything", "#606060"],
+            borderColor: "white",
+            borderWidth: 2,
+            data: [2478,6960,5000],
+          }
+        ]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        title: {
+          padding: 20,
+          display: true,
+          text: 'Step-Goals!',
+          fontColor: "white",
+          fontSize: 18
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  fontColor: "white",
+                  fontSize: 16,
+                }
+              }],
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 16,
+                    maxTicksLimit: 6,
+                    beginAtZero: true
+                }
+            }]
+        }
+      }
+  });
 
   var chart = new Chart(document.getElementById("bar-chart"), {
       type: 'bar',
