@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Open Sans';
+  font-family: 'Proza Libre';
   background-color: #29273D
 }
 
@@ -34,8 +34,9 @@ h1 {
 
 h2 {
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em;
   margin: 10px;
+  color: #FFF;
 }
 
 h4 {
