@@ -4,11 +4,8 @@ This is a 'Fit-Bit'-like activity, sleep, and hydration tracker. It takes data f
 
 There are a comprehensive set of mocha/chai tests for all classes, properties, and methods.
 
-Set up the dependancies by running `npm install`
-
 Run tests by typing `mocha` in your terminal in your cloned directory.
 
-## Assigned Project Spec
 
    ES6 classes that communicate to each other as needed
    Modular, reusable code that follows SRP (Single Responsibility Principle)
