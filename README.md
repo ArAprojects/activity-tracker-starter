@@ -6,7 +6,9 @@ There are a comprehensive set of mocha/chai tests for all classes, properties, a
 
 Run tests by typing `mocha` in your terminal in your cloned directory.
 
-
+# Tech used - 
+   
+   JQuery, Charts.js, javascript.
    ES6 classes that communicate to each other as needed
    Modular, reusable code that follows SRP (Single Responsibility Principle)
    Robust testing suite using TDD
